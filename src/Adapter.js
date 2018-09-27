@@ -4,9 +4,7 @@ export default class Adapter {
 
   static handleErrors(response){
     if(!response.ok){
-      throw Error(response.statusText);
-    }else if(response.message === "Not Found"){
-      throw Error("User not found")
+      throw Error(response.statusText)
     }
     return response
   }
@@ -17,5 +15,5 @@ export default class Adapter {
       .then(res => res.json())
       // .catch(error => error)
   }
-  
+
 }
