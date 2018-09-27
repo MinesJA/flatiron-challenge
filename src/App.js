@@ -71,6 +71,12 @@ class App extends Component {
            />
 
         </header>
+        
+        <Grid stackable centered style={{margin: "15px", padding: "15px"}}>
+          <Card.Group>
+            {this.state.currentUsers.length > 0 ? this.state.currentUsers.map( (user, i) => <GithubCard userInfo={user} progressInfo={{color: this.state.colors[i], total: this.state.repoTotal}} key={`user-${i}`}/> ) : null}
+          </Card.Group>
+        </Grid>
 
       </div>
     );
