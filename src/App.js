@@ -61,6 +61,7 @@ class App extends Component {
 
 
   render() {
+    const { currentUsers, currentValues, options, colors, repoTotal } = this.state
     return (
       <div className="App">
         <header className="App-header">
@@ -68,13 +69,13 @@ class App extends Component {
           <p>Add multiple usernames to view info on different Github users</p>
 
           <Dropdown
-           options={this.state.options}
+           options={options}
            placeholder='Search by Username'
            search
            selection
            multiple
            allowAdditions
-           value={this.state.currentValues}
+           value={currentValues}
            onAddItem={this.handleAddition}
            onChange={this.handleChange}
            />
@@ -82,7 +83,7 @@ class App extends Component {
         </header>
         <Grid stackable centered style={{margin: "15px", padding: "15px"}}>
           <Card.Group>
-            {this.state.currentUsers.length > 0 ? this.state.currentUsers.map( (user, i) => <GithubCard userInfo={user} progressInfo={{color: this.state.colors[i], total: this.state.repoTotal}} key={`user-${i}`}/> ) : null}
+            {currentUsers.length > 0 ? currentUsers.map( (user, i) => <GithubCard userInfo={user} progressInfo={{color: colors[i], total: repoTotal}} key={`user-${i}`}/> ) : null}
           </Card.Group>
         </Grid>
       </div>
