@@ -13,7 +13,6 @@ export default class Adapter {
     return fetch(GITHUB_URL + username)
       .then(this.handleErrors)
       .then(res => res.json())
-      // .catch(error => error)
   }
 
 }
