@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Adapter from './Adapter';
-import 'semantic-ui-css/semantic.min.css';
-import { Card, Dropdown } from 'semantic-ui-react'
-import GithubCard from './githubCard'
 import './App.css';
+import 'semantic-ui-css/semantic.min.css';
+import Adapter from './Adapter';
+import GithubCard from './githubCard'
+import { Grid, Card, Dropdown } from 'semantic-ui-react'
+
 
 
 class App extends Component {
@@ -12,7 +13,8 @@ class App extends Component {
     options: [],
     currentValues: [],
     currentUsers: [],
-    users: {}
+    users: {},
+    colors: ['blue', 'red', 'green', 'orange', 'yellow', 'violet', 'olive', 'teal', 'purple', 'pink']
   }
 
   handleAddition = (e, {value}) => {
@@ -49,6 +51,13 @@ class App extends Component {
   }
 
 
+  renderUsers = () => {
+    let { currentValues, users } = this.state
+    let usersArray = currentValues.map( username => users[username] ).filter(item => item)
+
+    this.setState({currentUsers: usersArray})
+  }
+
 
 
   render() {
@@ -71,13 +80,11 @@ class App extends Component {
            />
 
         </header>
-        
         <Grid stackable centered style={{margin: "15px", padding: "15px"}}>
           <Card.Group>
             {this.state.currentUsers.length > 0 ? this.state.currentUsers.map( (user, i) => <GithubCard userInfo={user} progressInfo={{color: this.state.colors[i], total: this.state.repoTotal}} key={`user-${i}`}/> ) : null}
           </Card.Group>
         </Grid>
-
       </div>
     );
   }
