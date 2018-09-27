@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Adapter from './Adapter';
 import 'semantic-ui-css/semantic.min.css';
-import GithubCard from './githubCard'
 import { Card, Dropdown } from 'semantic-ui-react'
+import GithubCard from './githubCard'
+import './App.css';
 
 
 class App extends Component {
