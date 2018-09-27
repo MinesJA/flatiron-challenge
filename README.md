@@ -4,7 +4,7 @@ Compare the repo count of mulitple users in a grid. Everytime you add a user via
 
 ## Getting Started
 
-Run `npm install && npm run`
+Run `npm install && npm start`
 
 ## Built With
 * [ReactJs](https://reactjs.org/)
